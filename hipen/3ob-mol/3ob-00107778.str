@@ -1,0 +1,17 @@
+* options for sccdftb, do these need to be particular per molecule?
+*
+
+calc cgtot = int( ?cgtot )
+define qmreg sele segi @qmreg show end
+
+!-----------------SCC-DFTB setup------------------------!
+scalar wmain set 1.0 sele type CL* show end
+scalar wmain set 2.0 sele type O* show end
+scalar wmain set 3.0 sele type N* show end
+scalar wmain set 4.0 sele type C* .and. .not. type CL* show end
+scalar wmain set 5.0 sele type H* show end
+!-------------------------------------------------------!
+
+sccdftb remove chrg @cgtot sele qmreg show end D3RD HBOND MIXE 1
+energy inbfrq 1 ctonnb 9980. ctofnb 9990. cutnb 10000.
+return

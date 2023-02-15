@@ -1,0 +1,18 @@
+* setup correl of rotatable dihedrals for each molecule....
+* .. i hope this works...
+*
+
+correl maxtimesteps 1000000 maxseries 20 maxatoms 10000
+
+
+enter chi1 dihe MOL 1 C8 MOL 1 C10 MOL 1 N1 MOL 1 O2
+enter chi2 dihe MOL 1 C9 MOL 1 C8 MOL 1 C10 MOL 1 N1
+enter chi3 dihe MOL 1 C10 MOL 1 N1 MOL 1 O2 MOL 1 H7
+
+traj firstu 40 nunit 1
+
+write all card unit 50
+* CHI1 CHI2 CHI3
+*
+
+return

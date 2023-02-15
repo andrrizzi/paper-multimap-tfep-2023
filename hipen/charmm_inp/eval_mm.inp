@@ -1,0 +1,52 @@
+* Running simulation of generated molecule
+* 
+
+if @?name .eq. 0 set name 00077329
+if @?rand1 .eq. 0 set rand1 1
+
+read rtf card name top_all36_cgenff.rtf
+read para card flex name par_all36_cgenff.prm
+stream zinc_@name.str
+
+read psf card name zinc_@name.psf
+read coor card name zinc_@name.crd
+
+energy
+energy ctofnb 9990. ctonnb 9980. cutnb 10000.
+! We don't need to add a positional restraint to evaluate the energies.
+!mmfp
+!geo rcm sphere -
+!    xref 0.0 yref 0.0 zref 0.0 xdir 1.0 ydir 1.0 zdir 1.0 -
+!    harmonic force 0.1 select .not. hydrogen end
+!end
+
+stream mdpars-mm.str
+
+open unit 13 writ form name energy/energy.@name.@lot.mm.@rand1.ene
+write title unit 13 
+* step mm_energy
+*
+ 
+open unit 12 file read name traj/dyna.@name.@lot.@rand1.dcd
+trajectory firstu 12 nunit 1
+
+set fram 1
+
+LABEL LOOP
+
+traj read
+
+energy inbfrq 1 imgfrq 0
+set ener ?ener
+write title unit 13
+* @fram @ener
+*
+ 
+incr fram by 1
+
+!if fram le 50 goto LOOP
+if fram le ?nfile goto LOOP
+
+
+stop
+

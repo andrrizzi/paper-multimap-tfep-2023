@@ -1,0 +1,19 @@
+UNITS LENGTH=A ENERGY=kcal/mol TIME=ps  # Amstroeng, kcal/mol, ps
+
+ene: ENERGY
+chi1: TORSION ATOMS=10,7,6,4
+chi2: TORSION ATOMS=7,6,4,3
+chi3: TORSION ATOMS=6,4,3,2
+chi4: TORSION ATOMS=4,3,2,1
+
+opes: OPES_METAD ...
+  ARG=chi1,chi3
+  TEMP=300
+  FILE=kernels.data
+  PACE=500                  # Deposit every 500 steps.
+  BARRIER=7                 # In kcal/mol.
+  STATE_WFILE=state.data
+  NLIST
+...
+
+PRINT FMT=%g STRIDE=100 FILE=colvar.data ARG=ene,opes.bias,opes.rct,opes.zed,opes.nker,chi1,chi2,chi3,chi4

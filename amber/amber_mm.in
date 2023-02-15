@@ -1,0 +1,42 @@
+! Zero step MD to get energy and force.
+
+&cntrl
+  ! General options.
+  imin=0,                   ! Run MD without minimization.
+  ntx=1,                    ! Read coordinates but no velocities.
+  irest=0,                  ! Do not restart, this is a new simulation.
+
+  ! Output configuration.
+  !ntwr=10000,               ! We don't need to save a restart file (default is nstlim).
+  ntpr=1,                   ! Append/save to mdout/mdinfo energy information every step.
+  ntwx=1,                   ! Append to mdcrd the coordinates every step.
+  ntwf=1,                   ! Append to mdfrc the forces every step.
+  ntwe=1,                   ! Append to mden energies and temperatures at every step.
+  ioutfm=1,                 ! mdcrd in netcdf format (default is 1).
+  idecomp=0,                ! Do not decompose energy (default is 0). This might be handy for the explicit solvent simulation.
+
+  ! MD options.
+  nstlim=0,                 ! Total number of MD steps.
+  !nscm=1000,                ! No need to recenter the center of mass (default is 1000).
+  dt=0.001,                 ! Time step in ps (but we don't step).
+
+  ! Temperature.
+  ntt=3,                    ! Use langevin dynamics to control temperature.
+  temp0=300,                ! Temperature in Kelvin.
+  tempi=300,                ! Initial velocities are drawn from Maxwellian distribution at 300K.
+  gamma_ln=5.0,             ! Collision frequency of Langevin dynamics in 1/ps.
+  ig=-1,                    ! Seed based on current date and time.
+  vlimit=20,                ! Truncate any component of the velocity above 20 (default is 20). A warning is printed when this happens.
+
+  ! Pressure.
+  ntp=0,                    ! No pressure control in vacuum. This section needs revision in explicit solvent.
+
+  ! SHAKE.
+  ntc=1,                    ! Do not perform SHAKE with QM simulations (unless equilibrium bond lengths are good enough).
+
+  ! Potential parameters.
+  ntf=1,                    ! Use all forces for dynamics (change if you SHAKE some bonds).
+  !ntb=0,                    ! Turn off periodic boundary conditions in vacuum.
+  igb=6,                    ! Vacuum calculation. Automatically sets ntb to 0 to remove periodic boundary conditions.
+  !cut=9999,                 ! Nonbonded/PME cutoff in Angstroms (default is 9999 for vacuum/implicit solvent calculations).
+/

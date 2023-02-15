@@ -1,0 +1,28 @@
+* Running simulation of generated molecule
+* 
+
+if @?name .eq. 0 set name 00077329
+if @?rand1 .eq. 0 set rand1 1
+
+read rtf card name top_all36_cgenff.rtf
+read para card flex name par_all36_cgenff.prm
+stream zinc_@name.str
+
+read psf card name zinc_@name.psf
+read coor card name zinc_@name.crd
+
+energy
+energy ctofnb 9990. ctonnb 9980. cutnb 10000.
+mmfp
+geo rcm sphere -
+    xref 0.0 yref 0.0 zref 0.0 xdir 1.0 ydir 1.0 zdir 1.0 -
+    harmonic force 0.1 select .not. hydrogen end
+end
+
+open unit 40 read unform name traj/dyna.@name.@lot.@rand1.dcd
+open unit 50 card name dihe/dihe.@name.@lot.@rand1.dat
+
+stream corr-dihe-@name.str
+
+stop
+

@@ -1,0 +1,21 @@
+* set random variables for improved sampling
+* (hopefully)
+*
+
+rand unif scale 100
+calc rand2 = int ( @rand1 * ?RAND )
+calc rand3 = int ( @rand1 * ?RAND )
+calc rand4 = int ( @rand1 * ?RAND )
+
+!random dihedrals
+RAND UNIF SCALE 360 OFFSET -180
+set ators ?RAND
+cons dihe MOL 1 C5 MOL 1 C4 MOL 1 C7 MOL 1 C12 force 100 min @{ATORS}
+set ators ?RAND
+cons dihe MOL 1 C7 MOL 1 C12 MOL 1 C13 MOL 1 C14 force 100 min @{ATORS}
+
+mini abnr nstep 1000 tolg 0.00005
+
+cons cldh
+
+return

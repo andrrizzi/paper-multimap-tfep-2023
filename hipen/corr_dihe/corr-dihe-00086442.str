@@ -1,0 +1,8 @@
+* setup correl of rotatable dihedrals for each molecule....
+* .. i hope this works...
+*
+
+! no rotatable dihedrals
+!! revisit this case to determine which dihedrals to analyze
+
+return

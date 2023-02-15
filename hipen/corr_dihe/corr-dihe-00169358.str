@@ -1,0 +1,9 @@
+* setup correl of rotatable dihedrals for each molecule....
+* .. i hope this works...
+*
+
+!correl maxtimesteps 1000000 maxseries 20 maxatoms 10000
+
+!no rotatable bonds, need to investigate other bonds for analysis
+
+return

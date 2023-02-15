@@ -1,0 +1,12 @@
+* dynamics timing settings
+*
+
+if @?time .eq. 0 set time 0.001
+if @?rand1 .eq. 0 set rand1 1
+if @?nsavc .eq. 0 set nsavc 100
+if @?neq .eq. 0 set neq 10000
+if @?nstep .eq. 0 set nstep 100000
+
+scalar fbeta set 5.0 sele all end
+
+return
