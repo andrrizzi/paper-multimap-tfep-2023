@@ -14,10 +14,10 @@ Andrea Rizzi, Paolo Carloni, Michele Parrinello. *Multimap targeted free energy 
 ## HiPen dataset
 
 The HiPen dataset files in this repository are a subset and slightly modified version of the original files
-published at <doi.org/10.5281/zenodo.2328951> under the [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/legalcode).
+published at [doi.org/10.5281/zenodo.2328951](doi.org/10.5281/zenodo.2328951) under the [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/legalcode).
 See the README in ``hipen/`` for a list of differences with the original files.
 
 If you use these files, please acknowledge also the original authors of the HiPen dataset by including this citation:
 
-Kearns FL, Warrensford L, Boresch S, Woodcock HL. The good, the bad, and the ugly: “HiPen”, a new dataset for validating
-(S)QM/MM free energy simulations. Molecules. 2019 Jan;24(4):681.
+Kearns FL, Warrensford L, Boresch S, Woodcock HL. *The good, the bad, and the ugly: “HiPen”, a new dataset for validating
+(S)QM/MM free energy simulations*. Molecules. 2019; 24(4):681.
