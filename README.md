@@ -1,6 +1,10 @@
 # Multimap targeted free energy estimation
 
-This is a repository including code and input files to reproduce the work of the paper
+This is a repository including code and input files to reproduce the work of the paper:
+
+Andrea Rizzi, Paolo Carloni, Michele Parrinello. *Free energies at QM accuracy from force fields via multimap targeted estimation*. PNAS [DOI: 10.1073/pnas.2304308120](https://www.pnas.org/doi/10.1073/pnas.2304308120).
+
+preprint version:
 
 Andrea Rizzi, Paolo Carloni, Michele Parrinello. *Multimap targeted free energy estimation.* [arXiv preprint arXiv:2302.07683](http://arxiv.org/abs/2302.07683).
 
@@ -10,6 +14,8 @@ Andrea Rizzi, Paolo Carloni, Michele Parrinello. *Multimap targeted free energy 
 - ``hipen/``: Curated HiPen dataset with only the input files necessary for benchmarking (T)FEP. This includes only the
               input files to run the MM and evaluate energies at the DFTB level of theory (i.e., no BAR/JAR/CO).
 - ``tfep/``:  Scripts to run the targeted free energy perturbation analysis.
+- ``conda_environment.yml``: The conda environment I used to run the calculations, included for reproducibility. Not
+                             all the packages in this environment might be actually required to run the calculations.
 
 ## HiPen dataset
 
